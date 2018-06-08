@@ -1,0 +1,103 @@
+//﻿.feedback-component {}
+
+.feedback-component__form {
+    @include spacing(inset, medium, true);
+    background-color: $white-2;
+    border: 2px solid $pale-grey;
+    padding-bottom: 8px;
+  
+    &::after {
+      clear: both;
+      content: '';
+      display: table;
+      width: 100%;
+    }
+  }
+  
+  .feedback-component__form--hidden {
+    display: none;
+  }
+  
+  .feedback-component--positive {
+    background-color: $light-grey-green;
+  }
+  
+  .feedback-component--negative {
+    background-color: $very-light-pink;
+  }
+  
+  .feedback-component__heading {
+    display: inline-block;
+    font-weight: 400;
+    padding: .5rem 2rem .5rem 0;
+  }
+  
+  .feedback-component__btn-group {
+    border: 0;
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: 0;
+  }
+  
+  .feedback-component__btn--success,
+  .feedback-component__btn--positive {
+    font-weight: 500;
+  }
+  
+  .feedback-component__radio {
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+    position: absolute;
+  
+    &:checked + label {
+      color: $white;
+      outline: 0;
+    }
+  
+    &:checked + .feedback-component__btn--success {
+      background-color: $dark-grass;
+    }
+  
+    &:checked + .feedback-component__btn--positive {
+      background-color: $dark;
+    }
+  
+    &:focus + .feedback-component__btn--success,
+    &:focus + .feedback-component__btn--positive {
+      background-color: $focus-color;
+      border-color: $dark;
+      color: $focus-color-text;
+      outline: 0;
+    }
+  }
+  
+  .feedback-component__fieldset {
+    border: 0;
+    clear: both;
+    display: none;
+    padding: .5rem 0 1rem;
+  }
+  
+  .feedback-component__fieldset--open {
+    display: block;
+  }
+  
+  .feedback-component__legend {
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+    text-indent: -999999px;
+  }
+  
+  .feedback-component__label {
+    border-top: 2px solid $pale-grey;
+    clear: both;
+    display: block;
+    font-size: 17px;
+    margin: 0 0 1rem;
+    padding-top: 1rem;
+  }
+  
+  .feedback-component__textarea {
+    margin: 0 0 1rem;
+  }
+  
