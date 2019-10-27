@@ -4,7 +4,7 @@ const fs = require('fs'),
 module.exports = {
     "external": {
         "path": process.cwd(),
-        "data": getExternalConfig()
+        "data": loadConfigFile()
     },
     "url": process.cwd() + '/source/**/*.md',
     "scss": path.resolve(__dirname, "source/**/*.scss"),
@@ -15,31 +15,16 @@ module.exports = {
     "logo": path.resolve(__dirname, "assets/logo.svg")
 }
 
-function getExternalConfig() {
-    try {
-        loadConfigFile().then(data, () => {
-            return data;
-        }); 
-    } catch(err) {
-        return "";
-    }
-}
-
-async function loadConfigFile() {
+function loadConfigFile() {
     var external = path.resolve(fs.realpathSync(process.cwd()), "gryte.config.json");
     try {
-        const configFilePath = await resolveAppPath(external);
+        if(!fs.existsSync(external)) {
+            return;
+        }
         return require(external);
-    } catch {
-        return "";
+    } catch(err) {
+        return;
     }
 }
 
 
-const resolveAppPath = (path) => {
-    return new Promise(fulfil => {
-        fs.access(path, exists =>
-            fulfil(exists)
-        );
-    });
-}

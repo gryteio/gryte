@@ -15,6 +15,7 @@ module.exports = (collection) => {
                 "guid": guidGenerator()
             });
             file.contents = Buffer.from(html);
+            file.basename = 'index.html';
             file.extname = '.html';
             self.push(file);
         } catch (err) {

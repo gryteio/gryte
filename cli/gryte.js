@@ -15,6 +15,7 @@ args
 var arguments = args.parse(process.argv);
 
 const config = require("../config");
+const loadConfig = require("./utils/loadConfig");
 
 const run = async () => {
   const collection = {};
@@ -45,8 +46,9 @@ const run = async () => {
     )
   ])
     .then(() => {
+      let template = loadConfig("template");
       vfs
-        .src(config.template)
+        .src(template)
         .pipe(processHandlebars(collection))
         .pipe(vfs.dest(config.dist));
     })
