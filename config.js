@@ -7,7 +7,7 @@ module.exports = {
         "data": getExternalConfig()
     },
     "url": process.cwd() + '/source/**/*.md',
-    "scss": path.resolve(__dirname, "styles/**/*.scss"),
+    "scss": path.resolve(__dirname, "source/**/*.scss"),
     "html": path.resolve(__dirname, "templates/index.html"),
     "template": path.resolve(__dirname, "cli/templates/index.hbs"),
     "js": path.resolve(__dirname, "dist/gryte.js"),
