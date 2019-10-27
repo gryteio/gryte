@@ -1,0 +1,125 @@
+$lighter-grey: #ebebeb;
+$keppel-blue: #3caea3;
+$white: #ffffff;
+$cod-grey: #1c1c1c;
+
+.gryte-body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.gryte-menu {
+  background-color: $lighter-grey;
+  position: absolute;
+  top: 4.5rem;
+  padding: 2rem;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+.gryte-menu--active {
+  display: block;
+}
+
+.gryte-header {
+  height: 2.5rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid $lighter-grey;
+  position: relative;
+}
+
+.gryte-brand {
+  float: left;
+}
+
+.gryte-brand path {
+  fill: #3caea3;
+}
+
+.gryte-logo {
+  height: 2.5rem;
+}
+
+.gryte-nav__open {
+  height: 2.5rem;
+  background-color: $white;
+  border: 1px solid $lighter-grey;
+  position: relative;
+  float: right;
+  width: 3rem;
+  cursor: pointer;
+}
+
+.gryte-nav__open:hover {
+    background-color: $lighter-grey;
+}
+
+.gryte-nav__open-lines {
+  top: .75rem;
+  left: .5rem;
+
+  &::before{
+      top: 6px;
+      left: 0;
+  }
+  &::after {
+      top: 12px;
+      left:0;
+  }
+}
+
+.gryte-nav__open-lines {
+  &,
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 3px;
+    
+    background: $keppel-blue;
+  }
+}
+
+.gryte-menu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gryte-menu__list-item {
+  display: block;
+  margin: 0 0 1rem 0;
+}
+.gryt-menu__headline {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 0;
+  display: block;
+  margin: 0 0 0.5rem 0;
+}
+
+.gryte-menu__sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gryte-menu__sub-list-item {
+  margin: 0 1rem 0.5rem 0;
+  display: inline-block;
+}
+
+.gryte-menu__link:link,
+.gryte-menu__link:visited {
+  color: $cod-grey;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  border-bottom: 2px solid $keppel-blue;
+}
+
+.gryte-menu__link:hover,
+.gryte-menu__link:focus {
+  border-bottom: 2px solid $white;
+}

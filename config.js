@@ -2,22 +2,24 @@ const fs = require('fs'),
   path = require('path');
 
 module.exports = {
-    "internal": {
-        "data": require(path.resolve(__dirname, "gryte.config.json"))
-    },
     "external": {
+        "path": process.cwd(),
         "data": getExternalConfig()
     },
     "url": process.cwd() + '/source/**/*.md',
-    "dist": process.cwd() + '/output'
-
+    "scss": path.resolve(__dirname, "styles/**/*.scss"),
+    "html": path.resolve(__dirname, "templates/index.html"),
+    "template": path.resolve(__dirname, "cli/templates/index.hbs"),
+    "js": path.resolve(__dirname, "dist/gryte.js"),
+    "dist": process.cwd() + '/output',
+    "logo": path.resolve(__dirname, "assets/logo.svg")
 }
 
 function getExternalConfig() {
     try {
         loadConfigFile().then(data, () => {
             return data;
-        });
+        }); 
     } catch(err) {
         return "";
     }

@@ -1,17 +1,20 @@
 {
   "name": "gryte",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A component library tool",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp"
+    "prebuild": "rimraf dist",
+    "build": "rollup -c",
+    "lint": "eslint source/**/*.js"
   },
   "bin": {
     "gryte": "cli/gryte.js"
   },
   "files": [
+    "assets",
     "cli",
-    "gulpfile"
+    "dist",
+    "source"
   ],
   "author": "",
   "license": "ISC",
@@ -19,10 +22,23 @@
     "args": "4.0.0",
     "frontmatter": "0.0.3",
     "marked": "0.7.0",
-    "rollup": "^0.60.1",
     "through2": "3.0.1",
+    "handlebars": "^4.4.5",
     "vinyl-buffer": "^1.0.1",
     "vinyl-fs": "^3.0.3",
+    "sass": "^1.23.0",
+    "node-sass": "^4.12.0",
     "vinyl-source-stream": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/standalone": "^7.6.4",
+    "eslint": "^6.6.0",
+    "rimraf": "^3.0.0",
+    "rollup": "^0.60.7",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.2"
   }
 }
