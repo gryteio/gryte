@@ -14,7 +14,8 @@
     "assets",
     "cli",
     "dist",
-    "source"
+    "source",
+    "config.js"
   ],
   "author": "",
   "license": "ISC",
