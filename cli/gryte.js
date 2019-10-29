@@ -27,30 +27,29 @@ const run = async () => {
           .src(config.url)
           .pipe(processFile())
           .pipe(addToCollection(collection))
-          .pipe(vfs.dest(config.dist))
+          .pipe(vfs.dest(loadConfig("dist")))
           .on("end", resolve);
       },
       new Promise(function(resolve, reject) {
         vfs
           .src(config.scss)
           .pipe(sassProcess())
-          .pipe(vfs.dest(config.dist))
+          .pipe(vfs.dest(loadConfig("dist")))
           .on("end", resolve);
       }),
       new Promise(function(resolve, reject) {
         vfs
           .src(config.js)
-          .pipe(vfs.dest(config.dist))
+          .pipe(vfs.dest(loadConfig("dist")))
           .on("end", resolve);
       })
     )
   ])
     .then(() => {
-      let template = loadConfig("template");
       vfs
-        .src(template)
+        .src(loadConfig("template"))
         .pipe(processHandlebars(collection))
-        .pipe(vfs.dest(config.dist));
+        .pipe(vfs.dest(loadConfig("dist")));
     })
     .catch(function(error) {
       console.log("error:", error);

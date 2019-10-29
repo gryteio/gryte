@@ -2,9 +2,8 @@ const through = require("through2"),
     frontMatter = require("frontmatter"),
     { promisify } = require("util"),
     marked = require("marked"),
-    pMarked = promisify(marked);
-
-const paths = require("../../config");
+    pMarked = promisify(marked),
+    loadConfig = require("../utils/loadConfig");
 
 const rendrer = {
     render: {
@@ -59,7 +58,7 @@ module.exports = () => {
             file.name = fileName;
             const markdownData = await pMarked(file.contents.toString());
             file.contents = Buffer.from(markdownData);
-            file.path = `${paths.dist}/${fileArea}/${fileName}`;
+            file.path = `${loadConfig('dist')}/${fileArea}/${fileName}`;
             file.extname = ".html";
             self.push(file);
         } catch (err) {
