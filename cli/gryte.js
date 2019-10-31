@@ -24,7 +24,7 @@ const run = async () => {
     new Promise(
       (resolve, reject) => {
         vfs
-          .src(config.url)
+          .src(loadConfig("url"))
           .pipe(processFile())
           .pipe(addToCollection(collection))
           .pipe(vfs.dest(loadConfig("dist")))
