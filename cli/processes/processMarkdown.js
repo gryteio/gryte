@@ -38,9 +38,9 @@ module.exports = () => {
     try {
       frontmatterData = await frontMatter(String(file.contents));
       if (
-        frontmatterData.data ||
-        frontmatterData.data.area ||
-        frontmatterData.data.name
+        !frontmatterData.data ||
+        !frontmatterData.data.area ||
+        !frontmatterData.data.name
       ) {
         throw ("File is malformed, could not find area and/or name in file: ",
         file.path);
