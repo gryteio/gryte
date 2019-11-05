@@ -6,7 +6,7 @@ module.exports = {
     path: process.cwd(),
     data: loadConfigFile()
   },
-  url: process.cwd() + "/source/**/*.md",
+  src: process.cwd() + "/source",
   scss: path.resolve(__dirname, "source/**/*.scss"),
   html: path.resolve(__dirname, "templates/index.html"),
   template: path.resolve(__dirname, "cli/templates/index.hbs"),

@@ -1,20 +1,21 @@
 const through = require("through2");
-
-const paths = require("../../config");
+const path = require("path");
+const loadConfig = require("../utils/loadConfig");
 
 module.exports = collection => {
   async function handle(file, enc, callback) {
     var self = this;
     var data = file.frontMatter;
+    const srcPath = path.resolve(loadConfig("src"));
     try {
       if (data.name && data.area) {
         if (file.history.length > 0) {
           data.path = file.history[file.history.length - 1].replace(
-            paths.dist,
+            srcPath,
             ""
           );
         } else {
-          data.path = file.history[0].replace(paths.dist, "");
+          data.path = file.history[0].replace(srcPath, "");
         }
         if (data.title == null) {
           data.title = data.name;
