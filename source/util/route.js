@@ -11,7 +11,7 @@ export default function Route() {
 
   if (item) {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", `${item.dataset.path}`);
+    xhr.open("GET", `./${item.dataset.path}`);
     xhr.send(null);
     xhr.onreadystatechange = () => {
       var DONE = 4,

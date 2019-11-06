@@ -1,10 +1,11 @@
 {
   "name": "gryte",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "description": "A component library tool",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "rollup -c",
+    "prepublish": "npm run build",
     "lint": "eslint source/**/*.js"
   },
   "bin": {
