@@ -2,7 +2,7 @@ export default function Route() {
   const main = document.getElementById("gryte-main");
   const route = window.location.href.split("#")[1];
 
-  if (!route || route == "") {
+  if (!route || route === "") {
     return;
   }
 

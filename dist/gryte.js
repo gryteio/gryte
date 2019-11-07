@@ -15,11 +15,10 @@ function _classCallCheck(instance, Constructor) {
 var Navigation = function Navigation(element) {
   _classCallCheck(this, Navigation);
 
-  var openButton = element.querySelector(".gryte-nav__open");
   var menu = element.querySelector(".gryte-menu");
 
-  if (openButton !== null) {
-    openButton.addEventListener("click", function () {
+  if (menu !== null) {
+    element.addEventListener("click", function () {
       menu.classList.toggle("gryte-menu--active");
       menu.setAttribute("aria-hidden", "false");
       menu.setAttribute("aria-expanded", "true");
@@ -31,7 +30,7 @@ function Route() {
   var main = document.getElementById("gryte-main");
   var route = window.location.href.split("#")[1];
 
-  if (!route || route == "") {
+  if (!route || route === "") {
     return;
   }
 
@@ -56,12 +55,12 @@ function Route() {
   }
 }
 
-Mount('gryte-nav', Navigation);
+Mount("js-gryte-nav", Navigation);
 
 window.onhashchange = function () {
   Route();
-  var menu = document.querySelector('.gryte-menu');
-  menu.classList.toggle('gryte-menu--active');
+  var menu = document.querySelector(".gryte-menu");
+  menu.classList.toggle("gryte-menu--active");
 };
 
 Route();

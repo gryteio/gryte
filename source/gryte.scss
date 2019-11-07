@@ -12,11 +12,13 @@ $cod-grey: #1c1c1c;
 .gryte-menu {
   background-color: $lighter-grey;
   position: absolute;
-  top: 4.5rem;
-  padding: 2rem;
+  top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
+  height: 100%;
   display: none;
+  z-index: 999999;
 }
 
 .gryte-menu--active {
@@ -53,20 +55,20 @@ $cod-grey: #1c1c1c;
 }
 
 .gryte-nav__open:hover {
-    background-color: $lighter-grey;
+  background-color: $lighter-grey;
 }
 
 .gryte-nav__open-lines {
-  top: .75rem;
-  left: .5rem;
+  top: 0.75rem;
+  left: 0.5rem;
 
-  &::before{
-      top: 6px;
-      left: 0;
+  &::before {
+    top: 6px;
+    left: 0;
   }
   &::after {
-      top: 12px;
-      left:0;
+    top: 12px;
+    left: 0;
   }
 }
 
@@ -78,7 +80,6 @@ $cod-grey: #1c1c1c;
     position: absolute;
     width: 2rem;
     height: 3px;
-    
     background: $keppel-blue;
   }
 }
@@ -86,7 +87,7 @@ $cod-grey: #1c1c1c;
 .gryte-menu__list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 4rem 2rem;
 }
 .gryte-menu__list-item {
   display: block;
@@ -116,7 +117,7 @@ $cod-grey: #1c1c1c;
   color: $cod-grey;
   font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
-  border-bottom: 2px solid $keppel-blue;
+  border-bottom: 2px solid $cod-grey;
 }
 
 .gryte-menu__link:hover,
