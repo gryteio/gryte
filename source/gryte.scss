@@ -25,6 +25,10 @@ $cod-grey: #1c1c1c;
   display: block;
 }
 
+.gryte-menu__close {
+  float: right;
+}
+
 .gryte-header {
   height: 2.5rem;
   padding: 1rem 2rem;
@@ -123,4 +127,38 @@ $cod-grey: #1c1c1c;
 .gryte-menu__link:hover,
 .gryte-menu__link:focus {
   border-bottom: 2px solid $white;
+}
+
+.gryte-menu__close {
+  float: right;
+  height: 2.5rem;
+  background-color: $lighter-grey;
+  border: 1px solid $white;
+  position: relative;
+  float: right;
+  width: 3rem;
+  cursor: pointer;
+  margin: 2rem;
+
+  &:hover {
+    background-color: $white;
+  }
+
+  &::before,
+  &::after {
+    height: 2px;
+    content: "";
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    background: $cod-grey;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+  &::after {
+    transform: rotate(45deg);
+  }
 }
