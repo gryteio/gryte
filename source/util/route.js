@@ -1,3 +1,5 @@
+import RebindScripts from "./rebindScripts";
+
 export default function Route() {
   const main = document.getElementById("gryte-main");
   const route = window.location.href.split("#")[1];
@@ -19,6 +21,7 @@ export default function Route() {
       if (xhr.readyState === DONE) {
         if (xhr.status === OK) {
           main.innerHTML = xhr.responseText;
+          RebindScripts();
         }
       }
     };

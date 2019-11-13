@@ -6,9 +6,14 @@ import Route from "./util/route";
 Mount("js-gryte-nav", Navigation);
 
 window.onhashchange = () => {
-  Route();
-  const menu = document.querySelector(".gryte-menu");
-  menu.classList.toggle("gryte-menu--active");
+  location.reload();
+  /*Route();
+  const menu = document.querySelector(".gryte-menu"),
+    main = document.getElementById("gryte-main");
+
+  menu.removeAttribute("style");
+  main.removeAttribute("style");
+  */
 };
 
 Route();

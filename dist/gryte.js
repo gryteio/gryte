@@ -15,13 +15,31 @@ function _classCallCheck(instance, Constructor) {
 var Navigation = function Navigation(element) {
   _classCallCheck(this, Navigation);
 
-  var menu = element.querySelector(".gryte-menu");
+  var menu = document.querySelector(".gryte-menu");
+  var closeMenu = menu.querySelector(".gryte-menu__close");
+  var main = document.getElementById("gryte-main");
 
   if (menu !== null) {
     element.addEventListener("click", function () {
-      menu.classList.toggle("gryte-menu--active");
+      menu.setAttribute("style", "display:block;");
       menu.setAttribute("aria-hidden", "false");
       menu.setAttribute("aria-expanded", "true");
+
+      if (main !== null) {
+        main.setAttribute("style", "display:none;");
+      }
+    });
+  }
+
+  if (closeMenu !== null) {
+    closeMenu.addEventListener("click", function () {
+      if (menu !== null) {
+        menu.removeAttribute("style");
+      }
+
+      if (main !== null) {
+        main.removeAttribute("style");
+      }
     });
   }
 };
