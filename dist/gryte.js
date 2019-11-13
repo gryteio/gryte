@@ -44,6 +44,17 @@ var Navigation = function Navigation(element) {
   }
 };
 
+function RebindScripts() {
+  var body = document.getElementsByTagName("body")[0];
+  var script = document.getElementById("main-script");
+
+  if (script) {
+    body.removeChild(script);
+    script.src = script.getAttribute("src").split("?")[0] + "?v=" + Math.floor(Math.random() * 999999);
+    body.appendChild(script);
+  }
+}
+
 function Route() {
   var main = document.getElementById("gryte-main");
   var route = window.location.href.split("#")[1];
@@ -67,6 +78,7 @@ function Route() {
       if (xhr.readyState === DONE) {
         if (xhr.status === OK) {
           main.innerHTML = xhr.responseText;
+          RebindScripts();
         }
       }
     };
@@ -76,9 +88,13 @@ function Route() {
 Mount("js-gryte-nav", Navigation);
 
 window.onhashchange = function () {
-  Route();
-  var menu = document.querySelector(".gryte-menu");
-  menu.classList.toggle("gryte-menu--active");
+  location.reload();
+  /*Route();
+  const menu = document.querySelector(".gryte-menu"),
+    main = document.getElementById("gryte-main");
+   menu.removeAttribute("style");
+  main.removeAttribute("style");
+  */
 };
 
 Route();
