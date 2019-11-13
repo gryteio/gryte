@@ -4,10 +4,11 @@ export default function RebindScripts() {
 
   if (script) {
     body.removeChild(script);
-    script.src =
+    const rebinded = document.createElement("script");
+    rebinded.src =
       script.getAttribute("src").split("?")[0] +
       "?v=" +
       Math.floor(Math.random() * 999999);
-    body.appendChild(script);
+    body.appendChild(rebinded);
   }
 }
