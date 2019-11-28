@@ -1,6 +1,6 @@
 {
   "name": "gryte",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "A component library tool",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -30,6 +30,7 @@
     "through2": "3.0.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-fs": "^3.0.3",
+    "highlight.js": "^9.16.2",
     "vinyl-source-stream": "^2.0.0"
   },
   "devDependencies": {
@@ -37,7 +38,6 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/standalone": "^7.6.4",
     "eslint": "^6.6.0",
-    "highlight.js": "^9.16.2",
     "rimraf": "^3.0.0",
     "rollup": "^0.60.7",
     "rollup-plugin-babel": "^4.3.3",
