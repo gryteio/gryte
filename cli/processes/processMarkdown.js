@@ -2,32 +2,31 @@ const through = require("through2"),
   frontMatter = require("frontmatter"),
   { promisify } = require("util"),
   marked = require("marked"),
+  hljs = require("highlight.js"),
   pMarked = promisify(marked),
   loadConfig = require("../utils/loadConfig");
 
-const rendrer = {
-  render: {
-    heading: function(text, level) {
-      var escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
-      return (
-        "<h" + level + ' class="kb-headline">' + text + "</h" + level + ">"
-      );
-    },
-    code: function(code, language) {
-      var coded = require("highlightjs").highlightAuto(code).value;
-      var button = '<button class="kb-show-btn">Toggle code</button>';
-      return (
-        '<div class="kb-pre-container">' +
-        button +
-        '<pre><code class="hljs ' +
-        language +
-        '">' +
-        coded +
-        "</code></pre></div>"
-      );
+const renderer = new marked.Renderer();
+
+renderer.code = function(code, language) {
+  if (language === "colors") {
+    const colors = code.split("\n");
+    let html = '<div class="gryte-colors">';
+    for (const color of colors) {
+      const array = color.split(":");
+      const key = array[0].match(/\$[\S]+/g);
+      const value = array[1].match(/#[0-9a-fA-F]+/g);
+      html += `<div class="gryte-color-wrap">
+      <div class="gryte-color" style="background-color: ${value[0]}"></div>
+        <p class="gryte-color__key">${key[0]}</p>
+        <p class="gryte-color__value">${value[0]}</p>
+      </div>`;
     }
-  },
-  langPrefix: "hljs "
+
+    return `${html}</div>`;
+  }
+  const coded = hljs.highlight("html", code).value;
+  return `<pre><code class="hljs hljs-${language}">${coded}</code></pre>`;
 };
 
 module.exports = () => {
@@ -58,7 +57,10 @@ module.exports = () => {
       file.area = fileArea;
       file.frontMatter = frontmatterData.data;
       file.name = fileName;
-      const markdownData = await pMarked(file.contents.toString());
+      const markdownData = await pMarked(file.contents.toString(), {
+        renderer: renderer,
+        langPrefix: "hljs "
+      });
       file.contents = Buffer.from(markdownData);
       filePath = `${loadConfig("src")}/${fileArea}`;
       file.path = `${filePath}/${fileName}`;
