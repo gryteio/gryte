@@ -18,8 +18,8 @@ renderer.code = function(code, language) {
       const value = array[1].match(/#[0-9a-fA-F]+/g);
       html += `<div class="gryte-color-wrap">
       <div class="gryte-color" style="background-color: ${value[0]}"></div>
-        <p class="gryte-color__key">${key[0]}</p>
-        <p class="gryte-color__value">${value[0]}</p>
+        <span class="gryte-color__key">${key[0]}</span>
+        <span class="gryte-color__value">${value[0]}</span>
       </div>`;
     }
 

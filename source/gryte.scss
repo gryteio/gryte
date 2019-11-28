@@ -170,8 +170,18 @@ $cod-grey: #1c1c1c;
   flex-wrap: wrap;
 
   .gryte-color-wrap {
-    width: 15%;
-    margin: 0 0 1rem 0;
+    flex: 0 0 20%;
+    margin: 0 0 2rem 0;
+
+    @media print, screen and (min-width: 20em) {
+      flex: 0 0 100%;
+    }
+    @media print, screen and (min-width: 40em) {
+      flex: 0 0 50%;
+    }
+    @media print, screen and (min-width: 64em) {
+      flex: 0 0 20%;
+    }
   }
 
   .gryte-color__key {
