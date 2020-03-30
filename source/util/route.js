@@ -22,6 +22,13 @@ export default function Route() {
         if (xhr.status === OK) {
           main.innerHTML = xhr.responseText;
           RebindScripts();
+          const body = document.getElementsByTagName("body")[0];
+          const pageScripts = main.querySelectorAll("script");
+          for (let i = 0; pageScripts.length > i; i++) {
+            const script = document.createElement("script");
+            script.innerHTML = pageScripts[i].innerHTML;
+            body.appendChild(script);
+          }
         }
       }
     };

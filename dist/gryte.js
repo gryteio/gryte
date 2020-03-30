@@ -80,6 +80,14 @@ function Route() {
         if (xhr.status === OK) {
           main.innerHTML = xhr.responseText;
           RebindScripts();
+          var body = document.getElementsByTagName("body")[0];
+          var pageScripts = main.querySelectorAll("script");
+
+          for (var i = 0; pageScripts.length > i; i++) {
+            var script = document.createElement("script");
+            script.innerHTML = pageScripts[i].innerHTML;
+            body.appendChild(script);
+          }
         }
       }
     };
