@@ -1,6 +1,6 @@
 {
   "name": "gryte",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "A component library tool",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -23,25 +23,25 @@
   "dependencies": {
     "args": "4.0.0",
     "frontmatter": "0.0.3",
-    "handlebars": "^4.4.5",
+    "handlebars": "^4.7.6",
+    "highlight.js": "^9.18.1",
     "marked": "0.7.0",
-    "node-sass": "^4.12.0",
-    "sass": "^1.23.0",
+    "node-sass": "^4.13.1",
+    "sass": "^1.26.3",
     "through2": "3.0.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-fs": "^3.0.3",
-    "highlight.js": "^9.16.2",
     "vinyl-source-stream": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/standalone": "^7.6.4",
-    "eslint": "^6.6.0",
-    "rimraf": "^3.0.0",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/standalone": "^7.9.5",
+    "eslint": "^6.8.0",
+    "rimraf": "^3.0.2",
     "rollup": "^0.60.7",
-    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.1.2"
+    "rollup-plugin-terser": "^5.3.0"
   }
 }
