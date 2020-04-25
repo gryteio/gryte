@@ -1,6 +1,6 @@
 {
   "name": "gryte",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "A component library tool",
   "scripts": {
     "prebuild": "rimraf dist",
