@@ -1,5 +1,7 @@
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
+import { uglify } from "rollup-plugin-uglify";
+import scss from "rollup-plugin-scss";
 import path from "path";
 
 export default {
@@ -7,20 +9,24 @@ export default {
   external: ["@babel/standalone"],
   plugins: [
     babel({
-      exclude: /node_modules/
+      exclude: /node_modules/,
     }),
-    terser()
+    terser(),
+    scss({
+      output: true,
+      output: path.resolve(__dirname, "dist/gryte.css"),
+    }),
+    uglify(),
   ],
-  
+
   output: [
     {
-      dir: path.resolve(__dirname, "dist"),
       globals: {
-        "@babel/standalone": "Babel"
+        "@babel/standalone": "Babel",
       },
-      file: "gryte.js",
+      file: path.resolve(__dirname, "dist/gryte.js"),
       format: "es",
-      sourcemap: false
-    }
-  ]
+      sourcemap: false,
+    },
+  ],
 };

@@ -30,20 +30,19 @@ const run = async () => {
           .pipe(vfs.dest(loadConfig("dist")))
           .on("end", resolve);
       },
-      new Promise(function(resolve, reject) {
+      new Promise(function (resolve, reject) {
         vfs
-          .src(config.scss)
-          .pipe(sassProcess())
+          .src(config.css)
           .pipe(vfs.dest(loadConfig("dist")))
           .on("end", resolve);
       }),
-      new Promise(function(resolve, reject) {
+      new Promise(function (resolve, reject) {
         vfs
           .src(config.js)
           .pipe(vfs.dest(loadConfig("dist")))
           .on("end", resolve);
       })
-    )
+    ),
   ])
     .then(() => {
       vfs
@@ -51,7 +50,7 @@ const run = async () => {
         .pipe(processHandlebars(collection))
         .pipe(vfs.dest(loadConfig("dist")));
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log("error:", error);
     });
 };

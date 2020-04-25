@@ -1,3 +1,4 @@
+import "./gryte.scss";
 import Mount from "./util/mount";
 
 import Navigation from "./navigation/navigation";
@@ -7,13 +8,6 @@ Mount("js-gryte-nav", Navigation);
 
 window.onhashchange = () => {
   location.reload();
-  /*Route();
-  const menu = document.querySelector(".gryte-menu"),
-    main = document.getElementById("gryte-main");
-
-  menu.removeAttribute("style");
-  main.removeAttribute("style");
-  */
 };
 
 Route();
